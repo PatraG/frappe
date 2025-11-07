@@ -1,0 +1,50 @@
+2025-11-07 17:31:04,063 DEBUG cd frappe-bench && python3 -m venv env
+2025-11-07 17:31:08,522 DEBUG cd frappe-bench && /home/patrag/Documents/github/frappe-bench/env/bin/python -m pip install --quiet --upgrade pip
+2025-11-07 17:31:11,157 DEBUG cd frappe-bench && /home/patrag/Documents/github/frappe-bench/env/bin/python -m pip install --quiet wheel
+2025-11-07 17:31:14,127 LOG Getting frappe
+2025-11-07 17:31:14,127 DEBUG cd frappe-bench/apps && git clone https://github.com/frappe/frappe.git --branch version-15 --depth 1 --origin upstream
+2025-11-07 17:31:21,363 LOG Installing frappe
+2025-11-07 17:31:21,365 DEBUG cd /home/patrag/Documents/github/frappe-bench && /home/patrag/Documents/github/frappe-bench/env/bin/python -m pip install --quiet --upgrade -e /home/patrag/Documents/github/frappe-bench/apps/frappe 
+2025-11-07 17:32:26,451 DEBUG cd /home/patrag/Documents/github/frappe-bench/apps/frappe && yarn install --check-files
+2025-11-07 17:32:44,885 DEBUG cd frappe-bench && bench build
+2025-11-07 17:32:45,177 INFO /home/patrag/.local/bin/bench build
+2025-11-07 17:33:15,372 LOG setting up backups
+2025-11-07 17:33:15,382 LOG backups were set up
+2025-11-07 17:33:15,382 INFO Bench frappe-bench initialized
+2025-11-07 17:33:26,012 INFO /home/patrag/.local/bin/bench get-app erpnext --branch version-15
+2025-11-07 17:33:26,840 LOG Getting erpnext
+2025-11-07 17:33:26,840 DEBUG cd ./apps && git clone https://github.com/frappe/erpnext.git --branch version-15 --depth 1 --origin upstream
+2025-11-07 17:33:33,371 LOG Installing erpnext
+2025-11-07 17:33:33,372 DEBUG cd /home/patrag/Documents/github/frappe-bench && /home/patrag/Documents/github/frappe-bench/env/bin/python -m pip install --quiet --upgrade -e /home/patrag/Documents/github/frappe-bench/apps/erpnext 
+2025-11-07 17:33:45,123 DEBUG cd /home/patrag/Documents/github/frappe-bench/apps/erpnext && yarn install --check-files
+2025-11-07 17:33:45,864 DEBUG bench build --app erpnext
+2025-11-07 17:33:46,233 INFO /home/patrag/.local/bin/bench build --app erpnext
+2025-11-07 17:34:00,870 INFO /home/patrag/.local/bin/bench new-site development.localhost --admin-password admin --db-name erpnext_dev
+2025-11-07 17:35:00,216 INFO /home/patrag/.local/bin/bench --site development.localhost install-app erpnext
+2025-11-07 17:36:52,622 INFO /home/patrag/.local/bin/bench version
+2025-11-07 17:36:59,953 INFO /home/patrag/.local/bin/bench --site development.localhost set-config developer_mode 1
+2025-11-07 17:37:06,711 INFO /home/patrag/.local/bin/bench --site development.localhost scheduler enable
+2025-11-07 17:38:11,072 INFO /home/patrag/.local/bin/bench version
+2025-11-07 17:43:59,902 INFO /home/patrag/.local/bin/bench version
+2025-11-07 17:45:27,897 INFO /home/patrag/.local/bin/bench start
+2025-11-07 17:46:45,472 INFO /home/patrag/.local/bin/bench start
+2025-11-07 17:46:46,138 INFO /home/patrag/.local/bin/bench watch
+2025-11-07 17:46:46,277 INFO /home/patrag/.local/bin/bench worker
+2025-11-07 17:46:46,384 INFO /home/patrag/.local/bin/bench schedule
+2025-11-07 17:46:46,403 INFO /home/patrag/.local/bin/bench serve --port 8000
+2025-11-07 17:49:44,926 INFO /home/patrag/.local/bin/bench build
+2025-11-07 17:51:30,168 INFO /home/patrag/.local/bin/bench version
+2025-11-07 17:51:39,786 INFO /home/patrag/.local/bin/bench use development.localhost
+2025-11-07 17:51:46,532 INFO /home/patrag/.local/bin/bench build
+2025-11-07 17:52:03,138 INFO /home/patrag/.local/bin/bench start
+2025-11-07 17:52:03,688 INFO /home/patrag/.local/bin/bench schedule
+2025-11-07 17:52:03,832 INFO /home/patrag/.local/bin/bench watch
+2025-11-07 17:52:03,879 INFO /home/patrag/.local/bin/bench serve --port 8000
+2025-11-07 17:52:03,910 INFO /home/patrag/.local/bin/bench worker
+2025-11-07 17:54:05,108 INFO /home/patrag/.local/bin/bench --site development.localhost set-admin-password admin123
+2025-11-07 17:54:13,831 INFO /home/patrag/.local/bin/bench --site development.localhost set-admin-password admin123
+2025-11-07 17:54:22,176 INFO /home/patrag/.local/bin/bench start
+2025-11-07 17:54:22,976 INFO /home/patrag/.local/bin/bench worker
+2025-11-07 17:54:23,047 INFO /home/patrag/.local/bin/bench schedule
+2025-11-07 17:54:23,062 INFO /home/patrag/.local/bin/bench serve --port 8000
+2025-11-07 17:54:23,209 INFO /home/patrag/.local/bin/bench watch

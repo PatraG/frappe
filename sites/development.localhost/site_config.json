@@ -1,0 +1,6 @@
+{
+ "db_name": "erpnext_dev",
+ "db_password": "H2XBATnBwGCSRUDh",
+ "db_type": "mariadb",
+ "developer_mode": 1
+}
