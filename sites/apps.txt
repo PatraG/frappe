@@ -1,4 +1,0 @@
-frappe
-erpnext
-erpnext_indonesia_localization
-hrms
