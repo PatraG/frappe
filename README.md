@@ -1,116 +1,68 @@
-# ERPNext Docker Setup
+<div align="center">
+	<h1>
+		<br>
+		<a href="https://frappeframework.com">
+			<img src=".github/frappe-framework-logo.svg" height="50">
+		</a>
+	</h1>
+	<h3>
+		a web framework with <a href="https://www.youtube.com/watch?v=LOjk3m0wTwg">"batteries included"</a>
+	</h3>
+	<h5>
+		it's pronounced - <em>fra-pay</em>
+	</h5>
+</div>
 
-Setup ERPNext v15 Stable dengan aplikasi:
-- **ERPNext v15.88.1** - Core ERP System
-- **HRMS v15.52.2** - Human Resource Management
-- **CRM v1.56.2** - Customer Relationship Management
-- **Insights v3.2.16** - Business Intelligence & Analytics
-- **ERPNext Indonesia Localization v1.2.0** - Indonesian Tax Compliance (Coretax)
+<div align="center">
+	<a target="_blank" href="#LICENSE" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-success.svg"></a>
+	<a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.10-success.svg"></a>
+	<a href="https://frappeframework.com/docs"><img src="https://img.shields.io/badge/docs-%F0%9F%93%96-success.svg"/></a>
+	<a href="https://github.com/frappe/frappe/actions/workflows/server-tests.yml"><img src="https://github.com/frappe/frappe/actions/workflows/server-tests.yml/badge.svg"></a>
+	<a href="https://github.com/frappe/frappe/actions/workflows/ui-tests.yml"><img src="https://github.com/frappe/frappe/actions/workflows/ui-tests.yml/badge.svg?branch=develop"></a>
+	<a href="https://codecov.io/gh/frappe/frappe"><img src="https://codecov.io/gh/frappe/frappe/branch/develop/graph/badge.svg?token=XoTa679hIj"/></a>
+</div>
 
-Built from official Frappe Docker image: `frappe/erpnext:v15.88.1`
 
-## Persyaratan
-- Docker
-- Docker Compose
+Full-stack web application framework that uses Python and MariaDB on the server side and a tightly integrated client side library. Built for [ERPNext](https://erpnext.com).
 
-## Cara Menjalankan
+<div align="center" style="max-height: 40px;">
+	<a href="https://frappecloud.com/frappe/signup"><img src=".github/try-on-f-cloud-button.svg" height="40"></a>
+	<a href="https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/gavindsouza/install-scripts/main/frappe/pwd.yml"><img src="https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png" alt="Try in PWD" height="37"/></a>
+</div>
 
-### 1. Build Custom Image (First Time Only)
-```bash
-docker build -t custom-erpnext-with-indonesia:latest .
-```
+> Login for the PWD site: (username: Administrator, password: admin)
 
-### 2. Start Services
-```bash
-docker compose up -d
-```
+## Table of Contents
+* [Installation](#installation)
+* [Contributing](#contributing)
+* [Resources](#resources)
+* [License](#license)
 
-### 3. Create Site (First Time Only)
-```bash
-docker compose --project-name frappe exec backend bench new-site frontend --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app erpnext --install-app hrms --install-app crm --install-app insights --install-app erpnext_indonesia_localization --set-default
-```
+## Installation
 
-Atau jalankan service create-site:
-```bash
-docker compose --project-name frappe up -d configurator create-site
-```
+### Production
+* [Managed Hosting on Frappe Cloud](https://frappecloud.com/)
+* [Easy install script using Docker images](https://github.com/frappe/bench/tree/develop#easy-install-script)
+* [Manual install using Docker images](https://github.com/frappe/frappe_docker)
 
-### 4. Akses ERPNext
-Buka browser dan akses: http://localhost:8080
+### Development
+* [Easy install script using Docker images](https://github.com/frappe/bench/tree/develop#easy-install-script)
+* [Development installation on bare metal](https://frappeframework.com/docs/user/en/installation)
 
-**Login Credentials:**
-- Username: Administrator
-- Password: admin
 
-## Perintah Berguna
+## Contributing
 
-### Melihat Logs
-```bash
-docker compose logs -f backend
-```
+1. [Code of Conduct](CODE_OF_CONDUCT.md)
+1. [Contribution Guidelines](https://github.com/frappe/erpnext/wiki/Contribution-Guidelines)
+1. [Security Policy](SECURITY.md)
+1. [Translations](https://translate.erpnext.com)
 
-### Stop Services
-```bash
-docker compose down
-```
+## Resources
 
-### Restart Services
-```bash
-docker compose restart
-```
+1. [frappeframework.com](https://frappeframework.com) - Official documentation of the Frappe Framework.
+1. [frappe.school](https://frappe.school) - Pick from the various courses by the maintainers or from the community.
 
-### Akses Bench Console
-```bash
-docker compose exec backend bash
-```
+## License
+This repository has been released under the [MIT License](LICENSE).
 
-### Update Apps
-```bash
-docker compose exec backend bench update --reset
-```
-
-### Backup Site
-```bash
-docker compose exec backend bench --site frontend backup
-```
-
-## ERPNext Indonesia Localization
-
-Aplikasi ini menyediakan fitur untuk kepatuhan pajak Indonesia:
-
-### Fitur Utama:
-1. **Coretax XML Exporter** - Export Sales Invoice ke format XML DJP
-2. **Coretax Importer** - Import data VAT dari DJP (Excel) ke ERPNext
-3. **Tax Compliance** - Sesuai regulasi perpajakan Indonesia
-
-### Setup Awal:
-
-Sebelum menggunakan fitur eFaktur, import master data referensi dari folder `coretax_reference_master_data`:
-- CoreTax Transaction Code Ref
-- CoreTax Barang Jasa Ref  
-- CoreTax Facility Stamp Ref
-- CoreTax Additional Info Ref
-- CoreTax Unit Ref
-
-**Dokumentasi:** [ERPNext Indonesia Localization](https://github.com/agile-technica/erpnext-indonesia-localization)
-
-## Volume Data
-- `db-data`: Database MariaDB
-- `sites`: Site files dan konfigurasi
-- `logs`: Application logs
-- `redis-*-data`: Redis cache dan queue data
-
-## Troubleshooting
-
-### Port 8080 sudah digunakan
-Edit `docker-compose.yml` dan ubah port mapping pada service `frontend`:
-```yaml
-ports:
-  - "8081:8080"  # Ubah 8080 ke port lain
-```
-
-### Reset Database
-```bash
-docker compose down -v
-docker compose up -d
-```
+By contributing to Frappe, you agree that your contributions will be licensed under its MIT License.
