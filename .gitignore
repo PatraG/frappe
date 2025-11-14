@@ -46,3 +46,13 @@ Thumbs.db
 
 # Bench lock files
 *.lock
+
+# Apps sources (managed by bench; do not track)
+apps/
+
+# Bench logs directory
+logs/
+
+# Ignore entire sites except apps.txt
+sites/*
+!sites/apps.txt
