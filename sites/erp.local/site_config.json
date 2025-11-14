@@ -1,8 +1,0 @@
-{
- "db_name": "erpnext_db",
- "db_password": "9m0tM8iW4ufXTtoG",
- "db_type": "mariadb",
- "user_type_doctype_limit": {
-  "employee_self_service": 40
- }
-}
