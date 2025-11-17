@@ -192,3 +192,31 @@ cypress/videos
 
 # JetBrains IDEs
 .idea/
+
+# ----------------------------
+# Frappe/Bench template cleanup
+# ----------------------------
+
+# Local bench and generated content (do not commit runtime artifacts)
+frappe-test-bench/
+
+# Local demo/test site
+test_site/
+
+# Site-specific app list created by bench
+sites/apps.txt
+
+# Databases and caches
+*.sqlite
+*.sqlite3
+*.duckdb
+*.db
+*.db-journal
+
+# Locks and logs
+*.lock
+*.log
+
+# Redis and runtime configs
+redis_*.conf
+*.acl
